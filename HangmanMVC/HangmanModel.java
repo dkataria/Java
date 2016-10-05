@@ -1,5 +1,5 @@
 /* 
- * HangmanModel.java 
+ * HangmanView.java 
  * 
  * Version: 
  *     $Id$ 
@@ -7,100 +7,118 @@
  * Revisions: 
  *     $Log$ 
  */
-
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.Scanner;
 
 /**
- * This program implements model component.
+ * This program implements the View component.
  *
  * @author Imran Bohari
  * @author Deep Kataria
  */
 
-public class HangmanModel {
-
-	static ArrayList<String> wordlist = new ArrayList<String>();
-	char randomworda[];
-	int index;
-	boolean isfound;
-	String correctletter[];
-	String PlayerName[] = new String[2];
-	int score[] = new int[2];
-
+public class HangmanView {
+	Scanner in = new Scanner(System.in);
+	
 	/**
-	 * this method is used to return the player name 
-	 * at the index provided
+	 * this method is used to ask user input and return it to the 
+	 * controller for processing
 	 * 
-	 * @param       index to search
-	 * 
-	 * @return		returns playername
+	 * @return		 letter
 	 * 
 	 */
 	
-	public String PlayerName(int i) {
-
-		return PlayerName[i];
+	public String enterLetter() {
+		System.out.println("Enter letter " );
+		String letter;
+		letter = in.nextLine();
+		return letter;
 	}
-     
+	
 	/**
-	 * this method is used check and update the hidden word
-	 * with dashes based on the user input provided. 
+	 * this method is used to ask for player name and return it to 
+	 * the controller for storing
 	 * 
-	 * @param        letter to be checked 
+	 * @return		returns gamepiece
 	 * 
 	 */
 	
-	public void match(String letter) {
-
-		for (int i = 0; i < randomworda.length; i++) {
-			if (letter.charAt(0) == randomworda[i]) {
-				index = i;
-				correctletter[i] = letter;
-				isfound = true;
-				break;
-			} else {
-				isfound = false;
-			}
+	public String playerNames(int i){
+		
+		System.out.println("Enter Player " + i + " name");
+		String player = in.nextLine();
+		return player;
+		
+	}
+	
+	/**
+	 * this method is used to display the score to the user
+	 * 
+	 * 
+	 */
+	
+	public void displayScore(String name ,int score){
+		System.out.println(" \n\n" +name + " : " + score);
+		
+	}
+	
+	/**
+	 * this method is used to display the number of lives left
+	 * 
+	 * 
+	 */
+	
+	public void displayNumberOfLives(int lives){
+		System.out.println("        Lives left" + lives);
+		System.out.println("============================");
+		
+	}
+	
+	/**
+	 * this method is used to display the hidden word with dashes
+	 * 
+	 * 
+	 */
+	
+	public void displayCorrectLetter(String correctletter){
+		
+		System.out.print(" " + correctletter);
+	}
+	
+	/**
+	 * this method is used to notify the specific about his/her turn
+	 * 
+	 * 
+	 */
+	
+	public void yourTurn(String play){
+		System.out.println("\nYour turn " + play);
+	}
+	
+	/**
+	 * this method is used to display the winner .
+	 * 
+	 * 
+	 */
+	
+	/**
+	 * this method is used to display the correct word in the end of player's
+	 * turn if he/she was not able to guess the word correctly.
+	 * 
+	 */
+	
+	public void displayCorrectWordEnd(String randomword){
+		
+		System.out.print("Your word was :" + randomword);
+	}
+	
+	public void gameOver(String message){
+		String winner = message;
+		if (winner.equals("Draw")){
+			System.out.println("Game Draw");
+		}else {
+			System.out.println("The winner is " +winner);
 		}
-	}
-    
-	/**
-	 * this method returns a randomword selected from the wordlist
-	 * 
-	 * 
-	 * @return		randomword
-	 * 
-	 */
-	
-	static String RandomWord() {
-		Random rand = new Random();
-		String randomword = wordlist.get(rand.nextInt(wordlist.size()));
-		return randomword;
+		System.out.println("Game Over");
 	}
 
-	/**
-	 * this method is used to compute and return the winner
-	 * 
-	 * 
-	 * @return	winner name
-	 * 
-	 */
-	
-	public String winner() {
-
-		if (score[0] > score[1]) {
-			return PlayerName[0];
-
-		} else if (score[0] < score[1]) {
-			return PlayerName[1];
-
-		} else if (score[0] == score[1]) {
-			return "Draw";
-		} else
-			return null;
-
-	}
-
-	
-} // HangmanModel
+} // HangmanView
