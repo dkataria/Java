@@ -106,6 +106,10 @@ public class HangmanController implements Runnable {
 
 					hview.displayScore(hmodel.PlayerName[index], 
 							hmodel.score[index]);
+					if (num_of_lives == 0){
+						hview.displayCorrectWordEnd(randomword);
+					}
+					
 					p1 = false;
 					try {
 
