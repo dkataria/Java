@@ -1,1 +1,14 @@
 
+Connect4FieldMVC is an implementation of the much popular board game - Hangman. We have implemented this game in Model-View-Controller
+design pattern.
+
+This project contains three files -  Connect4FieldController.java, Connect4FieldModel.java, Connect4FieldView.java.
+The code was developed by Deep Katariya (drk8921@g.rit.edu) and Imran Bohari(iib8085@g.rit.edu).
+In order to run this game on your system-
+1. You need to have Java 7 installed in your system.
+2. Create a project in any IDE - Eclipse, Netbeans etc.
+3. Copy the source files in the src folder of the newly created project.
+4. Run the Connect4FieldController.java file.
+5. Enjoy the game.
+
+It is advised to use the provided code only to learn and not to plagiarize.
