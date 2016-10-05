@@ -1,1 +1,15 @@
+HaangmanMVC is an implementation of the classic paper and pencil game - Hangman. We have implemented this game in Model-View-Controller
+design pattern. We have used multithreading to implement this 2 player game.
 
+This project contains three files -  HangmanController.java, HangmanModel.java, HangmanView.java.
+The code was developed by Deep Katariya (drk8921@g.rit.edu) and Imran Bohari(iib8085@g.rit.edu).
+In order to run this game on your system-
+1. You need to have Java 7 installed in your system.
+2. Create a project in any IDE - Eclipse, Netbeans etc.
+3. Copy the source files in the src folder of the newly created project.
+4. Change the path of the text files containing the words to be used in the game in HangmanController.java file on line number - 199.
+   Note - your file should be a txt file with one word per line format.
+5. Run the HangmanController.java file.
+6. Enjoy the game.
+
+It is advised to use the provided code only to learn and not to plagiarize.
